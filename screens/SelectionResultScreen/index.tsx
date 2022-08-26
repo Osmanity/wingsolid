@@ -7,13 +7,13 @@ interface IProps {
     navigation?: NavigationProp<ParamListBase>
 }
 
-const InitialScreen: FC<IProps> = ({ navigation }) => {
+const SelectionResultScreen: FC<IProps> = ({ navigation }) => {
     const styles = useMemo(() => createStyles(), []);
     return (
         <View style={styles.body}>
-            <Text style={styles.text}>InitialScreen</Text>
+            <Text style={styles.text}>SelectionResultScreen</Text>
         </View>
     )
 }
 
-export default InitialScreen;
+export default SelectionResultScreen;

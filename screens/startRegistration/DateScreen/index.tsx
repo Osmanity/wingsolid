@@ -7,13 +7,13 @@ interface IProps {
     navigation?: NavigationProp<ParamListBase>
 }
 
-const InitialScreen: FC<IProps> = ({ navigation }) => {
+const DateScreen: FC<IProps> = ({ navigation }) => {
     const styles = useMemo(() => createStyles(), []);
     return (
         <View style={styles.body}>
-            <Text style={styles.text}>InitialScreen</Text>
+            <Text style={styles.text}>DateScreen</Text>
         </View>
     )
 }
 
-export default InitialScreen;
+export default DateScreen;

@@ -2,18 +2,19 @@ import React, { FC, useMemo } from "react";
 import { Text, View } from "react-native";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import createStyles from './styles';
+import ContinueBtn from "../../../components/buttons/ContinueBtn";
 
 interface IProps {
     navigation?: NavigationProp<ParamListBase>
 }
 
-const InitialScreen: FC<IProps> = ({ navigation }) => {
+const SigninScreen: FC<IProps> = ({ navigation }) => {
     const styles = useMemo(() => createStyles(), []);
     return (
         <View style={styles.body}>
-            <Text style={styles.text}>InitialScreen</Text>
+            <Text style={styles.text}>SigninScreen</Text>
         </View>
     )
 }
 
-export default InitialScreen;
+export default SigninScreen;
