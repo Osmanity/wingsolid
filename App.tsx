@@ -9,6 +9,11 @@ import Screens from './navigation';
 export default function App() {
   return (
     <TailwindProvider >
+      <StatusBar
+        backgroundColor='transparent'
+        style='light'
+        translucent={true}
+      />
       <Screens />
     </TailwindProvider>
   );

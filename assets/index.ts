@@ -1,5 +1,6 @@
-const LOGO = require('../assets/images/wingsolidLogo.svg');
-const INITIAL_BACKGROUND = require('./images/splashImg14.png');
+const LOGO = require('../assets/images/wingsolidLogo.png');
+// const SPLASH_BACKGROUND = require('./images/start14.png');
+const INITIAL_BACKGROUND = require('./images/start14.png');
 const SIGNUP_BACKGROUND = require('./images/start14.png');
 const SIGNIN_BACKGROUND = require('./images/start14.png');
 const NAME_BACKGROUND = require('./images/datacollection14.png');
