@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from "react";
+import React, { FC, useEffect, useMemo, useState } from "react";
 import { Image, ImageBackground, Text, View } from "react-native";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import createStyles from './styles';
@@ -8,18 +8,72 @@ import { INITIAL_BACKGROUND, LOGO } from "../../../assets";
 import ButtonText from "../../../components/buttons/ButtonText";
 import Button from "../../../components/buttons/Button";
 
+import * as Progress from 'react-native-progress';
+import { Colors } from "../../../constant/colors";
+
+
+import * as Font from "expo-font";
+import { Asset } from "expo-asset";
+import AssetPreloader from "../../../components/AssetPreloader";
+
+
+
+
 interface IProps {
     navigation?: NavigationProp<ParamListBase>
 }
 
 const SigninScreen: FC<IProps> = ({ navigation }) => {
     const styles = useMemo(() => createStyles(), []);
+
+    // todo: Later on try finishing creating AssetPreloader for reuseability & cleaner code  
+    // <AssetPreloader assetsToLoad={[INITIAL_BACKGROUND, LOGO]} />
+
+    //////////////////////////////////////////////////////////////////////////////////////////
+    /*                          Preloading and Caching Assets                           */
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+    let [isLoaded, setIsLoaded] = useState(false);
+
+    let cacheResources = async () => {
+        const images = [INITIAL_BACKGROUND, LOGO];
+
+        const cacheImages = images.map(image => {
+            return Asset.fromModule(image).downloadAsync();
+        });
+
+        return Promise.all(cacheImages);
+    }
+
+    useEffect(() => {
+        const loadResources = async () => {
+            await cacheResources();
+            setIsLoaded(true);
+        };
+
+        loadResources();
+    }, [])
+
+    if (!isLoaded) {
+        return (<View style={styles.progress} >
+            {/* <Image source={LOGO} style={styles.logoProgress} /> */}
+            <Text style={styles.progressLogoText}>WingSolid</Text>
+            <Text style={styles.progressText}>Loading</Text>
+            <Progress.Bar progress={0.1} width={300} indeterminate={true} color={Colors.WHITE} height={15} />
+        </View>
+        )
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+
+
     return (
 
         <View style={styles.body}>
             <StatusBar
                 backgroundColor='transparent'
-                style='dark'
+                style='light'
                 translucent={true}
             />
             <ImageBackground source={INITIAL_BACKGROUND} style={styles.background}>
@@ -41,6 +95,16 @@ const SigninScreen: FC<IProps> = ({ navigation }) => {
                     </View>
                     <Button title="Get Started" disabled={false} color={false} onPress={() => navigation?.navigate('SignupScreen')} />
                 </View>
+
+                {/* <Image source={LOGO} style={styles.logoProgress} /> */}
+                {/* <View style={styles.progress} >
+                    <Text style={styles.progressLogoText}>WingSolid</Text>
+                    <Text style={styles.progressText}>Loading</Text>
+                    <Progress.Bar progress={0.1} width={300} indeterminate={true} color={Colors.WHITE} height={15} />
+                </View> */}
+
+
+
             </ImageBackground >
         </View >
     )

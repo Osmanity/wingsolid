@@ -2,6 +2,7 @@ import React, { FC, useMemo } from "react";
 import { Text, View } from "react-native";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import createStyles from './styles';
+import * as Progress from 'react-native-progress';
 
 interface IProps {
     navigation?: NavigationProp<ParamListBase>

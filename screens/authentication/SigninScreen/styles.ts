@@ -70,7 +70,7 @@ const createStyles = () =>
         },
         forgatButton: {
             marginTop: RFValue(30),
-            width: '70%'
+            width: '80%'
         },
         startedButton: {
             marginTop: RFValue(50),
@@ -83,7 +83,43 @@ const createStyles = () =>
             justifyContent: 'center',
 
             // marginTop: RFValue(40),
-        }
+        },
+
+
+
+        logoProgress: {
+            width: RFValue(100),
+            height: RFValue(100),
+            marginTop: RFValue(5),
+            marginBottom: RFValue(15),
+            marginLeft: RFValue(8),
+        },
+        progressLogoText: {
+            fontSize: RFValue(30),
+            fontWeight: '500',
+            color: Colors.WHITE,
+            marginTop: RFValue(40),
+            marginBottom: RFValue(40),
+        },
+        progressText: {
+            fontSize: RFValue(20),
+            fontWeight: '400',
+            color: Colors.WHITE,
+            marginBottom: RFValue(10),
+        },
+        progress: {
+            backgroundColor: Colors.BLACK,
+            padding: RFValue(20),
+            paddingBottom: RFValue(20),
+            borderRadius: RFValue(10),
+
+            // top: RFValue(50),
+            // position: "absolute",
+            // marginTop: RFValue(10),
+            alignItems: "center",
+            justifyContent: "center",
+            flex: 1,
+        },
 
     });
 
