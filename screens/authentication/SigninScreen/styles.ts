@@ -24,14 +24,17 @@ const createStyles = () =>
         logo: {
             width: RFValue(100),
             height: RFValue(100),
-            // marginTop: RFValue(5),
-            marginBottom: RFValue(10),
-            top: RFValue(60),
-            marginLeft: RFValue(15),
+            marginTop: RFValue(40),
+            // marginBottom: RFValue(100),
+            // top: RFValue(30),
+            // marginLeft: RFValue(15),
             // position: "absolute"
+            alignSelf: "center",
+            justifyContent: 'center'
+
         },
         titles: {
-            marginTop: RFValue(160),
+            marginTop: RFValue(30),
             alignItems: "center",
             justifyContent: 'center'
         },
@@ -51,14 +54,21 @@ const createStyles = () =>
 
 
         form: {
-            marginTop: RFValue(40),
+            // position: "absolute",
+            // bottom: RFValue(80),
+            position: 'relative',
+            marginTop: RFValue(8),
             alignItems: "center",
-            justifyContent: 'center'
+            justifyContent: 'center',
+            width: '100%',
+            height: 100,
+            // backgroundColor: Colors.WHITE
         },
         email: {
             fontSize: RFValue(25),
             fontWeight: '100',
             color: Colors.WHITE,
+            width: '100%'
             // borderWidth: RFValue(2),
             // borderColor: Colors.WHITE,
             // borderBottomWidth: RFValue(2),
@@ -68,20 +78,38 @@ const createStyles = () =>
             fontWeight: '100',
             color: Colors.WHITE
         },
+        textInput: {
+            borderBottomColor: Colors.WHITE,
+            color: Colors.WHITE,
+            textAlign: "center",
+            fontSize: RFValue(20),
+            borderBottomWidth: RFValue(2),
+            alignSelf: "center",
+            margin: RFValue(8),
+            padding: RFValue(2),
+            width: '50%',
+            marginTop: RFValue(10),
+            marginBottom: RFValue(18),
+        },
+
+
+
         forgatButton: {
-            marginTop: RFValue(30),
+            // marginTop: RFValue(30),
+            marginBottom: RFValue(20),
             width: '80%'
         },
         startedButton: {
-            marginTop: RFValue(50),
+            marginTop: RFValue(30),
         },
+
         buttons: {
-            position: "absolute",
-            bottom: RFValue(100),
+            // position: "absolute",
+            // bottom: RFValue(10),
             width: '100%',
             alignItems: "center",
             justifyContent: 'center',
-
+            marginBottom: RFValue(10),
             // marginTop: RFValue(40),
         },
 

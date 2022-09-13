@@ -7,7 +7,7 @@ const createStyles = () =>
         button: {
             width: '100%',
             alignSelf: 'center',
-            padding: RFValue(10),
+            padding: RFValue(6),
             alignItems: 'center',
             borderRadius: RFValue(10),
             borderWidth: RFValue(1),
@@ -17,7 +17,7 @@ const createStyles = () =>
         },
         text: {
             // color: Colors.WHITE,
-            fontSize: RFValue(16),
+            fontSize: RFValue(12),
             alignItems: "center",
             justifyContent: 'center',
         }

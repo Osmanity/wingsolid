@@ -6,21 +6,26 @@ const createStyles = () =>
     StyleSheet.create({
         body: {
             flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
+            // justifyContent: 'center',
+            // alignItems: 'center',
         },
+        title: {
+            top: RFValue(40),
+            // flex: 1,
+            flexDirection: "row",
+            justifyContent: 'center',
+            alignItems: 'center',
+
+        },
+
         text: {
             fontSize: RFValue(25),
             fontWeight: '300',
-            color: Colors.BLACK
+            color: Colors.BLACK,
+            marginRight: RFValue(5),
         },
-        textInput: {
-            borderBottomColor: Colors.BLACK,
-            borderBottomWidth: RFValue(2),
-            alignSelf: "center",
-            margin: 16,
-            padding: 8,
-            width: '50%',
+        planLogo: {
+
         }
     });
 

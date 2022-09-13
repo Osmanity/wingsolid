@@ -9,5 +9,17 @@ export { default as WorkoutFreqScreen } from './startRegistration/WorkoutFreqScr
 
 export { default as SelectionResultScreen } from './SelectionResultScreen'
 
+export { default as PlansScreen } from './TabScreens/PlansScreen'
+export { default as ProgressScreen } from './TabScreens/ProgressScreen'
+export { default as ExercisScreen } from './TabScreens/ExercisScreen'
+export { default as FoodScreen } from './TabScreens/FoodScreen'
+export { default as SocialScreen } from './TabScreens/SocialScreen'
+
+export { default as HistoryScreen } from './TabScreens/HistoryScreen'
+export { default as ExploreScreen } from './TabScreens/ExploreScreen'
+
+
+
+
 
 

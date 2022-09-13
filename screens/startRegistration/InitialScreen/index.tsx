@@ -74,10 +74,12 @@ const InitialScreen: FC<IProps> = ({ navigation }) => {
             </ImageBackground>
 
             <View style={styles.button}>
-                <Button title="Create Account" disabled={false} color={false} onPress={() => navigation?.navigate('SignupScreen')} />
+                <Button title="Create Account"
+                    disabled={false} color={false}
+                    onPress={() => navigation?.navigate('SignupScreen')}
+                />
                 <ButtonText title="Or Login" disabled={false} onPress={() => navigation?.navigate('SigninScreen')} />
             </View>
-
         </View >
     )
 }

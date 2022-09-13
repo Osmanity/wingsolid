@@ -43,7 +43,7 @@ const createStyles = () =>
         },
         button: {
             position: "absolute",
-            bottom: RFValue(100),
+            bottom: RFValue(40),
             width: '100%',
             alignItems: "center",
             justifyContent: 'center',

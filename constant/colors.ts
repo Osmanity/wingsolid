@@ -6,6 +6,7 @@ export interface ColorValue {
     ORANGE: string,
     GREY: string,
     LIGHT_GREY: string,
+    DARK_GREY: string,
 }
 
 export const Colors: ColorValue = {
@@ -16,4 +17,5 @@ export const Colors: ColorValue = {
     ORANGE: '#e79115',
     GREY: '#c4c4c4',
     LIGHT_GREY: '#e0e0e0',
+    DARK_GREY: '#616161'
 }

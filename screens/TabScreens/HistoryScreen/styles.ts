@@ -13,14 +13,6 @@ const createStyles = () =>
             fontSize: RFValue(25),
             fontWeight: '300',
             color: Colors.BLACK
-        },
-        textInput: {
-            borderBottomColor: Colors.BLACK,
-            borderBottomWidth: RFValue(2),
-            alignSelf: "center",
-            margin: 16,
-            padding: 8,
-            width: '50%',
         }
     });
 

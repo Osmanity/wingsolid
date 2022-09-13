@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useMemo, useState } from "react";
-import { Image, ImageBackground, Text, View } from "react-native";
+import { Image, ImageBackground, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from "react-native";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import createStyles from './styles';
 import ContinueBtn from "../../../components/buttons/ContinueBtn";
@@ -15,6 +15,9 @@ import { Colors } from "../../../constant/colors";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
 import AssetPreloader from "../../../components/AssetPreloader";
+import LoginBtn from "../../../components/buttons/loginBtn";
+
+// import { TextInput } from "react-native-paper"
 
 
 
@@ -24,6 +27,9 @@ interface IProps {
 }
 
 const SigninScreen: FC<IProps> = ({ navigation }) => {
+    const [email, setEmail] = useState('')
+    const [passoword, setPassoword] = useState('')
+
     const styles = useMemo(() => createStyles(), []);
 
     // todo: Later on try finishing creating AssetPreloader for reuseability & cleaner code  
@@ -66,10 +72,10 @@ const SigninScreen: FC<IProps> = ({ navigation }) => {
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
+    // scrollView props: bounces={false}
 
 
     return (
-
         <View style={styles.body}>
             <StatusBar
                 backgroundColor='transparent'
@@ -78,23 +84,54 @@ const SigninScreen: FC<IProps> = ({ navigation }) => {
             />
             <ImageBackground source={INITIAL_BACKGROUND} style={styles.background}>
                 <Image source={LOGO} style={styles.logo} />
-                <View style={styles.titles}>
-                    <Text style={styles.title}> Welcome back to your</Text>
-                    <Text style={styles.title}> workout track</Text>
-                </View>
-                <View style={styles.form}>
-                    <Text style={styles.email}>Email</Text>
-                    <Text style={styles.password}>Password</Text>
-                </View>
-                <View style={styles.forgatButton}>
-                    <ButtonText title="Have you forgotten your password?" disabled={false} onPress={() => navigation?.navigate('SigninScreen')} />
-                </View>
-                <View style={styles.buttons}>
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === "ios" ? "padding" : "height"}
+                    style={{ flex: 1, width: '100%', justifyContent: "center", alignItems: "center" }}
+                // keyboardVerticalOffset={Platform.OS === "ios" ? "-64" : "0"}
+                >
+                    <ScrollView
+                        // bounces={false}
+                        contentContainerStyle={{
+                            flexGrow: 1,
+                            // justifyContent: 'center',
+                            marginTop: 40,
+                            // mar
 
-                    <View style={styles.startedButton}>
+                        }} >
+
+                        <View style={styles.titles}>
+                            <Text style={styles.title}> Welcome back to your</Text>
+                            <Text style={styles.title}> workout track</Text>
+                        </View>
+                        <ScrollView >
+                            <View style={styles.form}>
+                                {/* <Text style={styles.email}>Email</Text> */}
+                                <TextInput style={styles.textInput} value={email} onChangeText={setEmail} placeholder="Email" placeholderTextColor={Colors.GREY} />
+                                {/* <View style={styles.textInput}>
+                                    <TextInput label="Email" mode="flat" style={{}} />
+                                </View> */}
+
+                                {/* <Text style={styles.password}>Password</Text> */}
+                                <TextInput style={styles.textInput} value={passoword} onChangeText={setPassoword} placeholder="Password" placeholderTextColor={Colors.GREY} />
+                                {/* <View style={styles.textInput}>
+                                    <TextInput label="Password" mode="flat" style={{}} />
+                                </View> */}
+                            </View>
+                        </ScrollView>
+                    </ScrollView >
+
+                    <View style={styles.buttons}>
+
+                        <View style={styles.startedButton}>
+                        </View>
+                        {/* <Button title="Get Started" disabled={false} color={false} onPress={() => navigation?.navigate('SignupScreen')} /> */}
+                        <LoginBtn btnText="Login" />
                     </View>
-                    <Button title="Get Started" disabled={false} color={false} onPress={() => navigation?.navigate('SignupScreen')} />
-                </View>
+                    <View style={styles.forgatButton}>
+                        <ButtonText title="Have you forgotten your password?" disabled={false} onPress={() => navigation?.navigate('PlansScreen',)} />
+                    </View>
+
+                </KeyboardAvoidingView>
 
                 {/* <Image source={LOGO} style={styles.logoProgress} /> */}
                 {/* <View style={styles.progress} >
@@ -102,9 +139,6 @@ const SigninScreen: FC<IProps> = ({ navigation }) => {
                     <Text style={styles.progressText}>Loading</Text>
                     <Progress.Bar progress={0.1} width={300} indeterminate={true} color={Colors.WHITE} height={15} />
                 </View> */}
-
-
-
             </ImageBackground >
         </View >
     )
